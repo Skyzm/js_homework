@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>MOVIES</title>
+        <style type="text/css">
+            *{
+            	margin:0;
+            	padding:0;
+            }
+            
+        	.top{
+                height:80px;
+        		border-style: none;
+        		display: block;
+        	}
+            .t1{
+                padding-left:0px;
+                margin-top: 15px;
+                float:left;
+            }
+            .t2{
+                position:absolute;
+                top:10px;
+                right:210px;
+            }
+            ul{
+                width:800px;
+                list-style-type: none;
+                margin:0;
+                float:left;
+            }
+            li{
+                font-size:20px;
+                width:160px;
+                height: 70px;
+                line-height: 80px;
+                text-align: center;
+                border:none;
+                float: left;
+                display: inline-block;
+            }
+            li:hover{
+                color:orange;
+                border-bottom: 3px solid orange;
+            }	
+        	.i1{
+        		color: #333;
+                text-decoration: none;
+        	}
+        	.middle{
+        		background-color:#ddd;
+        		height:560px;
+        		width:1200px;
+        		padding:20px 250px 20px 250px;
+        		display:block;
+        		margin-bottom:0;
+        	}
+        	.m1{
+        		width:398px;
+        		height:560px;
+        		float:left;
+        		margin-right:2px;
+        	}
+        	.mid1{
+                color:white;
+        		font-size:20px;
+        		padding-left:38px;
+        		float:left;
+        		line-height:73px;
+        	}
+        	.mid2{
+                color:white;
+        		font-size:30px;
+        		line-height:73px;
+        		margin-right: 94px;
+        	}
+        	.m2{
+        		width:398px;
+        		float:left;
+        		margin-right:4px;
+        		margin-bottom:1px;
+        	}
+        	.mid3{
+                color:white;
+        		font-size:18px;
+        		padding-left:38px;
+        		float:left;
+        		line-height:47px;
+        	}
+        	.mid4{
+                color:white;
+        		font-size:26px;
+        		margin-right:98px;
+        		line-height:47px;
+        	}
+        	.m3{
+        		width:398px;
+        		float:left;
+        		margin-bottom:1px;
+        	}	
+        	.m4{
+        		width:398px;
+        		float:left;
+        		margin-right:4px;
+        	}
+        	.m5{
+        		width:398px;
+        		float:left;
+        	}
+        	.below{
+        		height:120px;
+        		background-color:#000;
+        		text-align: center;
+        	}
+        	.b1{
+        		color:#fff;
+        		line-height:120px;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div class="top">
+    		<div class="t1">
+    			<img src="img/logo.jpeg">
+    		</div>
+    		<div class="t2">
+    			<ul>
+    				<a class="i1" href=""><li>首页</li></a>
+    				<a class="i1" href=""><li>热点</li></a>
+    				<a class="i1" href=""><li>电视剧</li></a>
+    				<a class="i1" href=""><li>电影</li></a>
+    				<a class="i1" href=""><li>综艺</li></a>
+    			</ul>
+    		</div>
+    	</div>
+    	<div class="middle">
+    		<div class="m1">
+                <img src="img/maque.jpg" alt="">
+    	    </div>
+
+    		<div class="m2">
+                 <img src="img/7.jpg" alt="" id="img1">	
+    		</div>
+
+    		<div class="m3">
+    			<img src="img/6.jpg" alt="">
+    		</div>
+
+    		<div class="m4">
+    			<img src="img/5.jpg" alt="">
+    		</div>
+
+    		<div class="m5">
+    			<img src="img/4.jpg" alt="">
+    		</div>
+    	</div>
+    	<div class="below">
+    		<div class="b1">苏ICP备000号、2014-2017 版权所有</div>
+    	</div>
+
+    </body>
+    <script type="text/javascript">
+        var arr = ['img/2.jpg','img/22.jpg','img/maque.jpg'];
+        var arr2 = ['img/3.jpg','img/4.jpg'];
+        var i = 0,j=0;
+        var a = 0;
+        window.onload = function(){
+            /*图片自动切换*/
+            interId = setInterval(function(){
+                i=i%arr.length;
+                var a = document.getElementsByTagName('img')[1];
+                a.src = arr[i];
+                i++;
+            },2000);
+            interId2 = setInterval(function(){
+                j=j%arr2.length;
+                var b = document.getElementsByTagName('img')[5];
+                b.src = arr2[j];
+                j++;
+            },3000); 
+            /*logo滑动*/
+            interId3=setInterval(function(){
+                if(a<=250){
+                    a += 10;
+                    b = a +'px';
+                    document.getElementsByClassName('t1')[0].style.paddingLeft=b;
+                }else{
+                     document.getElementsByClassName('t1')[0].style.paddingLeft=250+'px';
+                }
+            },15)    
+        }
+        /*鼠标滑动到图片上，图片切换*/
+        var c=document.getElementsByTagName('img')[3];
+        var d=document.getElementsByTagName('img')[2];
+        c.onmouseover=function(){
+            c.src='img/12.jpg';
+        }
+        d.onmouseover=function(){
+            d.src='img/11.jpg';
+        }
+        c.onmouseout=function(){
+            c.src='img/6.jpg';
+        }
+        d.onmouseout=function(){
+            d.src='img/7.jpg';
+        }
+    </script>
+</html>
